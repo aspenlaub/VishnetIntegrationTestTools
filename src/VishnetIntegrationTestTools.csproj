@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <GenerateBuildInfoConfigFile>false</GenerateBuildInfoConfigFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Deterministic>false</Deterministic>
+    <AssemblyTitle>Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools</AssemblyTitle>
+    <AssemblyProduct>Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools</AssemblyProduct>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/aspenlaub/VishnetIntegrationTestTools.git</RepositoryUrl>
+    <RepositoryBranch>master</RepositoryBranch>
+    <PackageId>VishnetIntegrationTestTools</PackageId>
+    <VersionDays>$([System.DateTime]::UtcNow.Subtract($([System.DateTime]::Parse("2019-07-24"))).Days.ToString())</VersionDays>
+    <VersionMinutes>$([System.Math]::Floor($([System.DateTime]::UtcNow.Subtract($([System.DateTime]::UtcNow.Date)).TotalMinutes)).ToString())</VersionMinutes>
+    <Version>2.0.$(VersionDays).$(VersionMinutes)</Version>
+    <RootNamespace>Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools</RootNamespace>
+    <AssemblyName>Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <NuspecFile>VishnetIntegrationTestTools.nuspec</NuspecFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Test\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <None Remove="Test\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="VishizhukelNet" Version="2.0.550.862" />
+  </ItemGroup>
+</Project>
