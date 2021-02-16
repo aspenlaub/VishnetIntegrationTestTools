@@ -35,10 +35,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DvinCore" Version="2.0.541.392" />
+    <PackageReference Include="DvinCore" Version="2.0.573.1109" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="TashClient" Version="2.0.557.602" />
+    <PackageReference Include="TashClient" Version="2.0.573.1126" />
   </ItemGroup>
 </Project>
