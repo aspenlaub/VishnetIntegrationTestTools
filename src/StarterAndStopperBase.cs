@@ -11,6 +11,10 @@ namespace Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools {
         protected abstract string ExecutableFile();
 
         public void Start() {
+            Start("");
+        }
+
+        public void Start(string windowUnderTestClassName) {
             var executableFile = ExecutableFile();
             if (!File.Exists(executableFile)) {
                 throw new Exception("File '" + executableFile + "' does not exist");
@@ -21,7 +25,7 @@ namespace Aspenlaub.Net.GitHub.CSharp.VishnetIntegrationTestTools {
             var process = new Process {
                 StartInfo = new ProcessStartInfo {
                     FileName = executableFile,
-                    Arguments = "/UnitTest",
+                    Arguments = "/UnitTest" + (string.IsNullOrEmpty(windowUnderTestClassName) ? "" : " /Window=" + windowUnderTestClassName),
                     WindowStyle = ProcessWindowStyle.Normal,
                     UseShellExecute = true,
                     WorkingDirectory = Path.GetDirectoryName(executableFile) ?? ""
