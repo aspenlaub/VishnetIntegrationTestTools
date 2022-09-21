@@ -65,9 +65,16 @@ public class WindowUnderTestActionsBase {
         return CreateControllableProcessTask(process, ControllableProcessTaskType.Reset, "", "");
     }
 
-    public async Task RemotelyProcessTaskListAsync(ControllableProcess process, List<ControllableProcessTask> tasks) {
-        var task = CreateControllableProcessTask(process, ControllableProcessTaskType.ProcessTaskList, "", JsonConvert.SerializeObject(tasks));
-        await SubmitNewTaskAndAwaitCompletionAsync(task);
+    public async Task RemotelyProcessTaskListAsync(ControllableProcess process, List<ControllableProcessTask> tasks, bool oneByOne, Func<Task> onTaskCompleted) {
+        if (oneByOne) {
+            foreach (var task in tasks) {
+                await SubmitNewTaskAndAwaitCompletionAsync(task);
+                await onTaskCompleted();
+            }
+        } else {
+            var task = CreateControllableProcessTask(process, ControllableProcessTaskType.ProcessTaskList, "", JsonConvert.SerializeObject(tasks));
+            await SubmitNewTaskAndAwaitCompletionAsync(task);
+        }
     }
 
     public async Task<string> SubmitNewTaskAndAwaitCompletionAsync(ControllableProcessTask task) {
