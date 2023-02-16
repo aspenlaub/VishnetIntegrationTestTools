@@ -38,6 +38,6 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
     <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="TashClient" Version="2.0.1268.1297" />
+    <PackageReference Include="TashClient" Version="2.0.1303.889" />
   </ItemGroup>
 </Project>
