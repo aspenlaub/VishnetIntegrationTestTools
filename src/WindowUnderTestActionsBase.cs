@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Aspenlaub.Net.GitHub.CSharp.Pegh.Helpers;
 using Aspenlaub.Net.GitHub.CSharp.Tash;
 using Aspenlaub.Net.GitHub.CSharp.TashClient.Enums;
 using Aspenlaub.Net.GitHub.CSharp.TashClient.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 
 // ReSharper disable UnusedMember.Global
 
@@ -72,7 +72,8 @@ public class WindowUnderTestActionsBase {
                 await onTaskCompleted(i, tasks[i]);
             }
         } else {
-            var task = CreateControllableProcessTask(process, ControllableProcessTaskType.ProcessTaskList, "", JsonConvert.SerializeObject(tasks));
+            var task = CreateControllableProcessTask(process, ControllableProcessTaskType.ProcessTaskList, "",
+                JsonSerializer.Serialize(tasks));
             await SubmitNewTaskAndAwaitCompletionAsync(task);
         }
     }
