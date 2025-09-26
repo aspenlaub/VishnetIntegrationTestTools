@@ -37,6 +37,6 @@
   <ItemGroup>
     <PackageReference Include="MSTest.TestAdapter" Version="3.10.4" />
     <PackageReference Include="MSTest.TestFramework" Version="3.10.4" />
-    <PackageReference Include="TashClient" Version="2.0.2217.1121" />
+    <PackageReference Include="TashClient" Version="2.0.2247.545" />
   </ItemGroup>
 </Project>
