@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Test/VishnetIntegrationTestTools.Test.csproj" />
+  <Project Path="VishnetIntegrationTestTools.csproj" />
+</Solution>
